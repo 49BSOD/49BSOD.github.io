@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гайды для согильдийцев</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f7fb;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Контейнер сетки */
+        .grid-container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Сетка 2 столбца, 3 строки */
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.8rem;
+        }
+
+        /* Стиль плитки */
+        .tile {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 2rem 1rem;
+            text-align: center;
+            text-decoration: none;
+            color: #1e293b;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: block;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Активная плитка (кликабельная) */
+        .tile.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            cursor: pointer;
+        }
+
+        .tile.active:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Неактивная плитка (заглушка) */
+        .tile.inactive {
+            background: #e2e8f0;
+            color: #64748b;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .tile h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .tile p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0,0,0,0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            margin-top: 0.75rem;
+        }
+
+        /* Заголовок страницы */
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title h1 {
+            font-size: 2.5rem;
+            color: #0f172a;
+        }
+
+        .page-title p {
+            color: #334155;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 640px) {
+            .guides-grid {
+                gap: 1rem;
+            }
+            .tile h3 {
+                font-size: 1.2rem;
+            }
+            body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="page-title">
+            <h1>📖 Гайды для согильдийцев</h1>
+            <p>Нажимай на активные плитки — читай руководства</p>
+        </div>
+
+        <div class="guides-grid">
+            <!-- Плитка 1: АКТИВНАЯ (ведёт на guide1.html) -->
+            <a href="guides/guide1.html" class="tile active">
+                <h3>🔥 Гайд №1</h3>
+                <p>Как стать мастером</p>
+                <div class="badge">Доступно</div>
+            </a>
+
+            <!-- Плитка 2: АКТИВНАЯ (ведёт на guide2.html) -->
+            <a href="guides/guide2.html" class="tile active">
+                <h3>⚙️ Гайд №2</h3>
+                <p>Секретные техники</p>
+                <div class="badge">Доступно</div>
+            </a>
+
+            <!-- Плитка 3: НЕАКТИВНАЯ (заглушка) -->
+            <div class="tile inactive">
+                <h3>❄️ Гайд №3</h3>
+                <p>Скоро</p>
+                <div class="badge">В разработке</div>
+            </div>
+
+            <!-- Плитка 4: НЕАКТИВНАЯ -->
+            <div class="tile inactive">
+                <h3>🌿 Гайд №4</h3>
+                <p>Скоро</p>
+                <div class="badge">В разработке</div>
+            </div>
+
+            <!-- Плитка 5: НЕАКТИВНАЯ -->
+            <div class="tile inactive">
+                <h3>✨ Гайд №5</h3>
+                <p>Скоро</p>
+                <div class="badge">В разработке</div>
+            </div>
+
+            <!-- Плитка 6: НЕАКТИВНАЯ -->
+            <div class="tile inactive">
+                <h3>💎 Гайд №6</h3>
+                <p>Скоро</p>
+                <div class="badge">В разработке</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

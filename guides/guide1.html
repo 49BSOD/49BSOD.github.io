@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гайд №1 - Как стать мастером</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, sans-serif;
+            background: #f1f5f9;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            background: #334155;
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .back-btn:hover {
+            background: #0f172a;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 1rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+        p {
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+        @media (max-width: 640px) {
+            body { padding: 1rem; }
+            .container { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-btn">← Вернуться на главную</a>
+        <h1>🔥 Как стать мастером</h1>
+        <p>Здесь будет текст гайда. Например, пошаговая инструкция для новичков.</p>
+        
+        <!-- Пример картинки. Положи картинку в папку guides/images/pic1.jpg -->
+        <img src="images/pic1.jpg" alt="Иллюстрация к гайду 1" onerror="this.src='https://placehold.co/800x400?text=Картинка+пока+отсутствует'">
+        
+        <p>Подробное описание первого шага. Можно добавить сколько угодно текста и картинок.</p>
+        <p>Второй абзац с важными советами для согильдийцев.</p>
+        
+        <a href="../index.html" class="back-btn" style="margin-top: 1rem;">🏠 На главную</a>
+    </div>
+</body>
+</html>
