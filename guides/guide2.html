@@ -2,17 +2,70 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Гайд №2 - Секретные техники</title>
-    <!-- скопируй тот же самый <style> что и в guide1.html -->
+    <title>Засада</title>
+ <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, sans-serif;
+            background: #f1f5f9;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            background: #334155;
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .back-btn:hover {
+            background: #0f172a;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 1rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+        p {
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+        @media (max-width: 640px) {
+            body { padding: 1rem; }
+            .container { padding: 1.5rem; }
+        }
+    </style>
+
 </head>
 <body>
     <div class="container">
         <a href="../index.html" class="back-btn">← Вернуться на главную</a>
-        <h1>⚙️ Секретные техники</h1>
-        <p>Текст второго гайда. Здесь расскажем о продвинутых приёмах.</p>
+        <h1>Порядок действий при засаде</h1>
+        <p>Тут будет текст гайда засады</p>
         <img src="images/pic2.jpg" alt="Техника" onerror="this.src='https://placehold.co/800x400?text=Картинка+2'">
-        <p>Детали и примеры использования.</p>
-        <a href="../index.html" class="back-btn">🏠 На главную</a>
+        <p>Тут тоже)</p>
+        <a href="../index.html" class="back-btn">На главную</a>
     </div>
 </body>
 </html>
