@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гайд №4 - Поезд</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f1f5f9;
+            padding: 2rem;
+            line-height: 1.6;
+            color: #0f172a;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            background: #334155;
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .back-btn:hover {
+            background: #0f172a;
+        }
+        h1 {
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .steps {
+            list-style: none;
+            margin: 1.5rem 0;
+            padding: 0;
+        }
+        .steps li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        .steps li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .steps li:nth-child(1)::before { content: "📢"; }
+        .steps li:nth-child(2)::before { content: "🚂"; }
+        .steps li:nth-child(3)::before { content: "🚫"; }
+        .steps li:nth-child(4)::before { content: "🔄"; }
+        .steps li:nth-child(5)::before { content: "💰"; }
+        .important {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            margin: 1rem 0;
+        }
+        .note {
+            background: #e0f2fe;
+            border-left: 4px solid #0ea5e9;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            margin: 1rem 0;
+        }
+        .icon-inline {
+            display: inline-block;
+            width: 1.2em;
+            vertical-align: middle;
+            margin: 0 0.1em;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 1rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.1);
+            display: block;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            height: 1px;
+            background: #e2e8f0;
+        }
+        @media (max-width: 640px) {
+            body { padding: 1rem; }
+            .container { padding: 1.5rem; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-btn">← Вернуться на главную</a>
+
+        <h1>Инструкция по поезду</h1>
+
+        <ul class="steps">
+            <li>Каждый день публикуется объявление с инструкцией и списком игроков, которые должны сесть в поезд в день публикации объявления (см. картинку).</li>
+        </ul>
+
+        <!-- рис 1 -->
+        <img src="images/pic_train1.png" alt="Объявление о поезде" onerror="this.src='https://placehold.co/800x400?text=Картинка+1:+объявление'">
+
+        <ul class="steps" style="margin-top: 0;">
+            <li>Поезд состоит из <strong>четырёх вагонов</strong>. В каждом вагоне пять посадочных мест.</li>
+        </ul>
+
+        <div class="important">
+            <strong>🚫 НЕЛЬЗЯ ЗАХОДИТЬ В ЗАПОЛНЕННЫЙ ВАГОН (5/5).</strong><br>
+            Выбирай оставшиеся вагоны, в которых есть места (0/5, 1/5, 2/5, 3/5, 4/5, см. картинку).
+        </div>
+
+        <!-- рис 2 -->
+        <img src="images/pic_train2.png" alt="Выбор вагона с местами" onerror="this.src='https://placehold.co/800x400?text=Картинка+2:+вагоны'">
+
+        <ul class="steps" style="margin-top: 0;">
+            <li>Если ты сел в вагон шестым (5/6) — <strong>пересядь</strong> в вагон, в котором есть место (0/5, 1/5, 2/5, 3/5, 4/5).</li>
+        </ul>
+
+<div class="note">
+    <strong>💰 При посадке в вагон открывается специальное меню, где необходимо пожертвовать 3 контракта конвоя.</strong><br>
+    Если контрактов нет — их можно купить там же за 100 алмазов за штуку. Пожертвование нужно для улучшения поезда и получения более ценных наград.<br><br>
+    ⚠️ <strong>Важно:</strong> Если ты случайно не пожертвовал контракты вообще или пожертвовал менее 3-х контрактов, ты можешь пересеть  в любой другой вагон (даже в заполненный). При повторной посадке меню откроется снова, и ты сможешь пожертвовать снова. После этого необходимо вернуться в свой вагон.
+</div>
+	<!-- рис 3 -->
+        <img src="images/pic_train3.png" alt="Выбор вагона с местами" onerror="this.src='https://placehold.co/800x400?text=Картинка+2:+вагоны'">
+
+        <hr>
+        <a href="../index.html" class="back-btn" style="margin-top: 0.5rem;">🏠 На главную</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гайд №0 - Правила Альянса</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f5f7fb;
+            padding: 2rem;
+            line-height: 1.6;
+            color: #0f172a;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            background: #dc2626;
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .back-btn:hover {
+            background: #b91c1c;
+        }
+        h1 {
+            color: #0f172a;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .rules-list {
+            list-style: none;
+            margin: 1.5rem 0;
+            padding: 0;
+        }
+        .rules-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+        .rules-list li::before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        /* Иконки для каждого пункта */
+        .rules-list li:nth-child(1)::before { content: "💬"; }
+        .rules-list li:nth-child(2)::before { content: "👑"; }
+        .rules-list li:nth-child(3)::before { content: "✍️"; }
+        .rules-list li:nth-child(4)::before { content: "💰"; }
+        .rules-list li:nth-child(5)::before { content: "⚔️"; }
+        .rules-list li:nth-child(6)::before { content: "📢"; }
+        .rules-list li:nth-child(7)::before { content: "🚚"; }
+        .rules-list li:nth-child(8)::before { content: "🏴‍☠️"; }
+        .important {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            margin: 1rem 0;
+        }
+        .note {
+            background: #e0f2fe;
+            border-left: 4px solid #0ea5e9;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            margin: 1rem 0;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 1rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.1);
+            display: block;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            height: 1px;
+            background: #e2e8f0;
+        }
+        @media (max-width: 640px) {
+            body { padding: 1rem; }
+            .container { padding: 1.5rem; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-btn">← Вернуться на главную</a>
+
+        <h1>📜 Правила Альянса</h1>
+
+        <ul class="rules-list">
+            <li><strong>Адекватность в общении</strong> — без оскорблений, провокаций и негатива.</li>
+            <li><strong>Исполнение приказов Главы</strong> — указания Главы и R4 обязательны к выполнению в рамках общей стратегии альянса. При несогласии — исполняем, после решаем вопрос посредством конструктивного диалога в личных сообщениях.</li>
+            <li><strong>Конструктивную критику и предложения</strong> писать в личные сообщения Главе и R4.</li>
+            <li><strong>Обязательно делать взносы в исследования альянса.</strong> Минимальный порог — 5 тысяч в день, 35 тысяч в неделю. Ознакомиться можно: "Альянс" → "Рейтинг участников" → "Пожертвовать".</li>
+            <li><strong>Участие в VS.</strong> Стараемся набирать минимум 1–3 миллиона очков на каждом этапе.</li>
+            <li><strong>Следить за объявлениями Альянса.</strong></li>
+            <li><strong>Транспорт и спецоперации грабить ТОЛЬКО НА ЧУЖИХ СЕРВЕРАХ.</strong> Для грабежа транспорта нужно зайти "Транспорт" → "Чужой транспортник" и поставить галочку "Исключить Транспортник с этого сервера" (см. картинку). Сервера для грабежа спецопераций регулярно выкладывают в объявлениях (см. картинку).</li>
+        </ul>
+
+        <!-- первая картинка -->
+        <img src="images/pic_rules1.png" alt="Настройка грабежа транспорта и сервера для спецопераций" onerror="this.src='https://placehold.co/800x400?text=Картинка+1:+грабеж+транспорта+и+спецоперации'">
+
+        <ul class="rules-list" style="margin-top: 0;">
+            <li><strong>На нашем сервере разрешено атаковать базы с уникальными никами, которые не состоят в альянсе.</strong> Базы с никами Commander****** разрешено грабить даже если они состоят в альянсе. Игроков с уникальными никами и состоящими в альянсе <strong>ГРАБИТЬ ЗАПРЕЩЕНО</strong>. Примеры баз — см. картинку.</li>
+        </ul>
+
+        <!-- вторая картинка -->
+        <img src="images/pic_rules2.png" alt="Примеры баз для грабежа" onerror="this.src='https://placehold.co/800x400?text=Картинка+2:+примеры+баз'">
+
+        <div class="important">
+            <strong>📌 Важно:</strong> Нарушение правил может привести к предупреждению или исключению из альянса. Если сомневаешься — спроси у R4.
+        </div>
+
+        <hr>
+        <a href="../index.html" class="back-btn" style="margin-top: 0.5rem;">🏠 На главную</a>
+    </div>
+</body>
+</html>
