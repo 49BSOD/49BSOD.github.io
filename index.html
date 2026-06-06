@@ -28,14 +28,12 @@
             margin: 0 auto;
         }
 
-        /* Сетка 2 столбца */
         .guides-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.8rem;
         }
 
-        /* Общие стили плитки */
         .tile {
             background: white;
             border-radius: 1.5rem;
@@ -90,10 +88,6 @@
         .tile h3 {
             font-size: 1.6rem;
             margin-bottom: 0.75rem;
-        }
-        .tile p {
-            font-size: 1rem;
-            opacity: 0.9;
         }
         .badge {
             display: inline-block;
@@ -154,7 +148,7 @@
             box-shadow: 0 15px 25px rgba(0,0,0,0.3);
         }
 
-        /* Модальное окно (попап) */
+        /* Модальное окно */
         .modal {
             display: none;
             position: fixed;
@@ -236,50 +230,16 @@
             opacity: 0;
             transition: opacity 0.3s;
         }
-        .password-dialog {
-            background: white;
-            border-radius: 1.5rem;
-            padding: 1.5rem;
-            text-align: center;
-            max-width: 300px;
-        }
-        .password-dialog input {
-            width: 100%;
-            padding: 0.5rem;
-            margin: 1rem 0;
-            border: 1px solid #ccc;
-            border-radius: 0.5rem;
-        }
+
         @media (max-width: 640px) {
-            .guides-grid {
-                gap: 1rem;
-            }
-            .tile h3 {
-                font-size: 1.2rem;
-            }
-            body {
-                padding: 1rem;
-            }
-            .guide-zero h3 {
-                font-size: 1.4rem;
-            }
-            .guide-zero {
-                margin-bottom: 1rem;
-            }
-            .title-with-icon img {
-                width: 70px;
-                height: auto;
-            }
-            .page-title h1 {
-                font-size: 1.8rem;
-            }
-            .floating-tools {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
-                bottom: 1rem;
-                right: 1rem;
-            }
+            .guides-grid { gap: 1rem; }
+            .tile h3 { font-size: 1.2rem; }
+            body { padding: 1rem; }
+            .guide-zero h3 { font-size: 1.4rem; }
+            .guide-zero { margin-bottom: 1rem; }
+            .title-with-icon img { width: 70px; height: auto; }
+            .page-title h1 { font-size: 1.8rem; }
+            .floating-tools { width: 50px; height: 50px; font-size: 24px; bottom: 1rem; right: 1rem; }
         }
     </style>
 </head>
@@ -299,48 +259,21 @@
         </a>
 
         <div class="guides-grid">
-            <a href="guides/guide1.html" class="tile active">
-                <h3>Раскопки</h3>
-                <div class="badge">Доступно</div>
-            </a>
-            <a href="guides/guide2.html" class="tile active">
-                <h3>Засада</h3>
-                <div class="badge">Доступно</div>
-            </a>
-            <a href="guides/guide3.html" class="tile active">
-                <h3>Поезд</h3>
-                <div class="badge">Доступно</div>
-            </a>
-            <a href="guides/guide4.html" class="tile active">
-                <h3>Война за капитолий</h3>
-                <div class="badge">Доступно</div>
-            </a>
-            <a href="guides/guide5.html" class="tile active">
-                <h3>Движение отряда и Такси</h3>
-                <div class="badge">Доступно</div>
-            </a>
-            <div class="tile inactive">
-                <h3>Готовность к миссии</h3>
-                <p>Скоро</p>
-                <div class="badge">В разработке</div>
-            </div>
-            <div class="tile inactive">
-                <h3>Гайд 7</h3>
-                <p>Скоро</p>
-                <div class="badge">В разработке</div>
-            </div>
-            <div class="tile inactive">
-                <h3>Гайд 8</h3>
-                <p>Скоро</p>
-                <div class="badge">В разработке</div>
-            </div>
+            <a href="guides/guide1.html" class="tile active"><h3>Раскопки</h3><div class="badge">Доступно</div></a>
+            <a href="guides/guide2.html" class="tile active"><h3>Засада</h3><div class="badge">Доступно</div></a>
+            <a href="guides/guide3.html" class="tile active"><h3>Поезд</h3><div class="badge">Доступно</div></a>
+            <a href="guides/guide4.html" class="tile active"><h3>Война за капитолий</h3><div class="badge">Доступно</div></a>
+            <a href="guides/guide5.html" class="tile active"><h3>Движение отряда и Такси</h3><div class="badge">Доступно</div></a>
+            <div class="tile inactive"><h3>Готовность к миссии</h3><p>Скоро</p><div class="badge">В разработке</div></div>
+            <div class="tile inactive"><h3>Гайд 7</h3><p>Скоро</p><div class="badge">В разработке</div></div>
+            <div class="tile inactive"><h3>Гайд 8</h3><p>Скоро</p><div class="badge">В разработке</div></div>
         </div>
     </div>
 
-    <!-- Плавающая кнопка для инструментов -->
+    <!-- Плавающая кнопка -->
     <div class="floating-tools" id="toolsButton">🛠️</div>
 
-    <!-- Модальное окно с инструментами -->
+    <!-- Модальное окно для инструментов -->
     <div id="toolsModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -348,134 +281,99 @@
                 <span class="close-modal" id="closeModalBtn">&times;</span>
             </div>
             <div class="tools-list">
-                <button class="tool-btn" id="generateSpecOpsBtn">🎲 Генератор спецопераций</button>
-                <!-- Здесь в будущем добавятся другие кнопки -->
+                <button class="tool-btn" data-tool="specops">🎲 Генератор спецопераций</button>
+                <!-- Здесь будут другие кнопки с data-tool="..." -->
             </div>
-            <div id="generatorResult" class="generator-result"></div>
-            <div id="copyNotice" class="copy-notice">✅ Скопировано!</div>
+            <div id="toolResult" class="generator-result"></div>
+            <div id="copyNotice" class="copy-notice">✅ Скопировано в буфер!</div>
         </div>
     </div>
 
     <script>
-        // --- Пароль для доступа к инструментам ---
-        const TOOLS_PASSWORD = "1271";
+        // Пароль для доступа к инструментам
+        const TOOLS_PASSWORD = '1271';
+        
+        // Элементы
+        const toolsBtn = document.getElementById('toolsButton');
+        const modal = document.getElementById('toolsModal');
+        const closeBtn = document.getElementById('closeModalBtn');
+        const toolButtons = document.querySelectorAll('.tool-btn');
+        const resultDiv = document.getElementById('toolResult');
+        const copyNotice = document.getElementById('copyNotice');
 
-        // --- Массивы чисел для спецопераций (по дням) ---
-        const arrays = [
-            [5, 10, 11, 16, 17, 22, 24, 28, 30, 31, 32, 40, 44, 46, 47, 48],
-            [4, 9, 14, 15, 20, 21, 23, 27, 29, 37, 38, 45, 49, 51],
-            [1, 2, 3, 6, 7, 8, 12, 13, 18, 19, 25, 26, 33, 34, 35, 39, 41, 42, 43, 50]
-        ];
-
-        // Стартовая дата: 4 июня 2025 (первый массив)
-        const startDate = new Date(2026, 5, 4);
-
-        // Функция получения индекса массива (0,1,2) по дате
-        function getArrayIndexByDate() {
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-            const start = new Date(startDate);
-            start.setHours(0, 0, 0, 0);
-            const diffDays = Math.floor((today - start) / (1000 * 60 * 60 * 24));
-            let index = diffDays % 3;
-            if (index < 0) index += 3;
-            return index;
-        }
-
-        // Функция получения 6 случайных уникальных чисел из массива
-        function getRandomSix(arr) {
-            if (!arr || arr.length === 0) return [];
-            const shuffled = [...arr];
-            for (let i = shuffled.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-            }
-            return shuffled.slice(0, 6);
-        }
-
-        // Функция формирования строки
-        function buildString(numbers) {
-            if (numbers.length !== 6) return "Ошибка: недостаточно чисел";
-            return `Спецоперации ⭐   <link=500&500&${numbers[0]}><u>${numbers[0]}</u></link>    <link=500&500&${numbers[1]}><u>${numbers[1]}</u></link>    <link=500&500&${numbers[2]}><u>${numbers[2]}</u></link>    <link=500&500&${numbers[3]}><u>${numbers[3]}</u></link>    <link=500&500&${numbers[4]}><u>${numbers[4]}</u></link>    <link=500&500&${numbers[5]}><u>${numbers[5]}</u></link>`;
-        }
-
-        // Копирование в буфер
-        async function copyToClipboard(text) {
-            try {
-                await navigator.clipboard.writeText(text);
-                return true;
-            } catch {
-                return false;
-            }
-        }
-
-        // Показать уведомление о копировании
+        // Функция показа уведомления о копировании
         function showCopyNotice() {
-            const notice = document.getElementById('copyNotice');
-            notice.style.opacity = '1';
-            setTimeout(() => {
-                notice.style.opacity = '0';
-            }, 2000);
+            copyNotice.style.opacity = '1';
+            setTimeout(() => { copyNotice.style.opacity = '0'; }, 2000);
         }
 
-        // Генерация и отображение результата
-        function generateSpecOps() {
-            const idx = getArrayIndexByDate();
-            const numbers = getRandomSix(arrays[idx]);
-            const resultString = buildString(numbers);
-            
-            // Показать результат в модальном окне (экранируем HTML)
-            const resultDiv = document.getElementById('generatorResult');
-            resultDiv.innerHTML = resultString.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-            resultDiv.style.display = 'block';
-            
-            // Копируем в буфер
-            copyToClipboard(resultString).then(success => {
-                if (success) showCopyNotice();
-                else alert('Не удалось скопировать, скопируйте вручную');
-            });
+        // Функция скрытия результата
+        function hideResult() {
+            resultDiv.style.display = 'none';
+            resultDiv.innerHTML = '';
         }
 
-        // --- Логика модального окна с паролем ---
-        const toolsButton = document.getElementById('toolsButton');
-        const toolsModal = document.getElementById('toolsModal');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const generateBtn = document.getElementById('generateSpecOpsBtn');
-
-        // Функция открытия модалки (после успешного пароля)
-        function openModal() {
-            toolsModal.style.display = 'flex';
-            // Сбросить результат при открытии
-            document.getElementById('generatorResult').style.display = 'none';
-            document.getElementById('copyNotice').style.opacity = '0';
+        // Функция загрузки и выполнения инструмента
+        async function runTool(toolName) {
+            hideResult();
+            try {
+                // Динамически импортируем JS-файл инструмента из папки tools/
+                const module = await import(`./tools/${toolName}.js`);
+                if (module && typeof module.run === 'function') {
+                    // Вызываем экспортированную функцию run, передаём колбэк для отображения результата и копирования
+                    module.run({
+                        displayResult: (html) => {
+                            resultDiv.innerHTML = html;
+                            resultDiv.style.display = 'block';
+                        },
+                        copyToClipboard: async (text) => {
+                            try {
+                                await navigator.clipboard.writeText(text);
+                                showCopyNotice();
+                                return true;
+                            } catch { return false; }
+                        }
+                    });
+                } else {
+                    throw new Error('Инструмент не содержит функцию run');
+                }
+            } catch (error) {
+                console.error(error);
+                resultDiv.innerHTML = '❌ Ошибка загрузки инструмента. Проверьте консоль.';
+                resultDiv.style.display = 'block';
+            }
         }
 
-        // Запрос пароля
-        function requestPasswordAndOpen() {
-            const password = prompt("Введите пароль для доступа к инструментам:");
+        // Открытие модального окна с проверкой пароля
+        function openModalWithPassword() {
+            const password = prompt('Введите пароль для доступа к инструментам:');
             if (password === TOOLS_PASSWORD) {
-                openModal();
+                modal.style.display = 'flex';
+                hideResult();
             } else if (password !== null) {
-                alert("Неверный пароль. Доступ запрещён.");
+                alert('Неверный пароль. Доступ запрещён.');
             }
         }
 
-        // По клику на плавающую кнопку — запрашиваем пароль
-        toolsButton.addEventListener('click', requestPasswordAndOpen);
+        // Закрытие модалки
+        function closeModal() {
+            modal.style.display = 'none';
+            hideResult();
+        }
 
-        // Закрытие модального окна
-        closeModalBtn.addEventListener('click', () => {
-            toolsModal.style.display = 'none';
-        });
-        // Закрытие по клику вне окна
-        window.addEventListener('click', (event) => {
-            if (event.target === toolsModal) {
-                toolsModal.style.display = 'none';
-            }
-        });
+        // Обработчики
+        toolsBtn.addEventListener('click', openModalWithPassword);
+        closeBtn.addEventListener('click', closeModal);
+        window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-        // Обработчик кнопки генерации
-        generateBtn.addEventListener('click', generateSpecOps);
+        // Назначаем обработчики кнопкам инструментов
+        toolButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tool = btn.getAttribute('data-tool');
+                if (tool) runTool(tool);
+                else alert('Инструмент не настроен');
+            });
+        });
     </script>
 </body>
 </html>
