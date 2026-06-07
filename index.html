@@ -114,39 +114,28 @@
             width: 107px;
             height: 130px;
             object-fit: contain;
+            cursor: pointer;
+            transition: transform 0.2s;
         }
-        .page-title h1 {
+        .title-with-icon img:hover {
+            transform: scale(1.02);
+        }
+        .title-text {
+            text-align: center;
+        }
+        .title-text h1 {
             font-size: 2.5rem;
-            color: #0f172a;
             margin: 0;
+            line-height: 1.2;
+        }
+        .allies-text {
+            font-size: 1.2rem;
+            margin: 0.25rem 0 0;
+            color: #0f172a;
         }
         .page-title p {
             color: #334155;
             margin-top: 0.5rem;
-        }
-
-        /* Плавающая кнопка */
-        .floating-tools {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            transition: transform 0.2s, box-shadow 0.2s;
-            z-index: 1000;
-            font-size: 28px;
-        }
-        .floating-tools:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 25px rgba(0,0,0,0.3);
         }
 
         /* Модальное окно */
@@ -205,9 +194,21 @@
             transition: background 0.2s;
             text-align: left;
             padding-left: 1rem;
+            display: block;
+            text-decoration: none;
+            color: inherit;
         }
         .tool-btn:hover {
             background: #e2e8f0;
+        }
+        .inactive-tool {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background: #e2e8f0;
+        }
+        .inactive-tool:hover {
+            background: #e2e8f0;
+            transform: none;
         }
         .generator-result {
             background: #0f172a;
@@ -239,57 +240,19 @@
             .guide-zero h3 { font-size: 1.4rem; }
             .guide-zero { margin-bottom: 1rem; }
             .title-with-icon img { width: 70px; height: auto; }
-            .page-title h1 { font-size: 1.8rem; }
-            .floating-tools { width: 50px; height: 50px; font-size: 24px; bottom: 1rem; right: 1rem; }
+            .title-text h1 { font-size: 1.8rem; }
+            .allies-text { font-size: 0.9rem; }
         }
-	.title-with-icon {
-    		display: flex;
-    		align-items: center;
-    		justify-content: center;
-    		gap: 1rem;
-    		flex-wrap: wrap;
-	}
-	.title-with-icon img {
-    		width: 107px;
-    		height: 130px;
-    		object-fit: contain;
-	}
-	.title-text {
-    		text-align: center;
-	}
-	.title-text h1 {
-    		font-size: 2.5rem;
-    		margin: 0;
-    		line-height: 1.2;
-	}
-	.allies-text {
-    		font-size: 1.2rem;
-    		margin: 0.25rem 0 0;
-    		color: #0f172a;
-	}
-	@media (max-width: 640px) {
-    		.title-with-icon img {
-        		width: 70px;
-        		height: auto;
-    	}
-    	.title-text h1 {
-        	font-size: 1.8rem;
-    	}
-    	.allies-text {
-        	font-size: 0.9rem;
-    }
-}
     </style>
 </head>
 <body>
     <div class="grid-container">
         <div class="page-title">
             <div class="title-with-icon">
-                <img src="logo.png" alt="Эмблема альянса">
-                <h1>
-    [BSOD] BlueScreenOfDeath<br>
-    [BDSO] TheWorldIsOnFire 
-</h1>
+                <img src="logo.png" alt="Эмблема альянса" id="logo">
+                <div class="title-text">
+                    <h1>[BSOD] BlueScreenOfDeath<br>[BDSO] TheWorldIsOnFire</h1>
+                </div>
             </div>
             <p>Нажимай на активные плитки — читай гайды</p>
         </div>
@@ -311,9 +274,6 @@
         </div>
     </div>
 
-    <!-- Плавающая кнопка -->
-    <div class="floating-tools" id="toolsButton">R4</div>
-
     <!-- Модальное окно для инструментов -->
     <div id="toolsModal" class="modal">
         <div class="modal-content">
@@ -323,9 +283,8 @@
             </div>
             <div class="tools-list">
                 <button class="tool-btn" data-tool="specops">🎲 Генератор спецопераций</button>
-    		<a href="r4.html" class="tool-btn" style="text-decoration: none; display: block;">📘 Руководство R4</a>
-    		<div class="tool-btn inactive-tool" style="opacity: 0.6; cursor: not-allowed;">📝 Текстовая разметка (скоро)</div>
-                <!-- Здесь будут другие кнопки с data-tool="..." -->
+                <a href="r4.html" class="tool-btn">📘 Руководство R4</a>
+                <div class="tool-btn inactive-tool">📝 Текстовая разметка (скоро)</div>
             </div>
             <div id="toolResult" class="generator-result"></div>
             <div id="copyNotice" class="copy-notice">✅ Скопировано в буфер!</div>
@@ -333,10 +292,8 @@
     </div>
 
     <script>
-
-        
         // Элементы
-        const toolsBtn = document.getElementById('toolsButton');
+        const logo = document.getElementById('logo');
         const modal = document.getElementById('toolsModal');
         const closeBtn = document.getElementById('closeModalBtn');
         const toolButtons = document.querySelectorAll('.tool-btn');
@@ -359,10 +316,8 @@
         async function runTool(toolName) {
             hideResult();
             try {
-                // Динамически импортируем JS-файл инструмента из папки tools/
                 const module = await import(`./tools/${toolName}.js`);
                 if (module && typeof module.run === 'function') {
-                    // Вызываем экспортированную функцию run, передаём колбэк для отображения результата и копирования
                     module.run({
                         displayResult: (html) => {
                             resultDiv.innerHTML = html;
@@ -386,26 +341,11 @@
             }
         }
 
-
-const _0x7a3b = {
-  _0x1f2c: 'efbd1f26a54875e39972ccf7fa21a34f2491c850b2eba9636cb5478e595897b5',
-  _0x4d5e: async (_0x2c3d) => {
-    const _0x5e6f = new TextEncoder();
-    const _0x7a8b = _0x5e6f.encode(_0x2c3d);
-    const _0x9c0d = await crypto.subtle.digest('SHA-256', _0x7a8b);
-    const _0x1a2b = Array.from(new Uint8Array(_0x9c0d));
-    return _0x1a2b.map(_0x3c4d => _0x3c4d.toString(16).padStart(2, '0')).join('');
-  }
-};
-async function openModalWithPassword() {
-  const _0x2f3a = prompt('Введите пароль для доступа к инструментам:');
-  if (!_0x2f3a) return;
-  const _0x4b5c = await _0x7a3b._0x4d5e(_0x2f3a);
-  if (_0x4b5c === _0x7a3b._0x1f2c) {
-    modal.style.display = 'flex';
-    if (typeof hideResult === 'function') hideResult();
-  } else alert('Неверный пароль. Доступ запрещён.');
-}
+        // Открытие модалки
+        function openModal() {
+            modal.style.display = 'flex';
+            hideResult();
+        }
 
         // Закрытие модалки
         function closeModal() {
@@ -414,31 +354,29 @@ async function openModalWithPassword() {
         }
 
         // Обработчики
-        toolsBtn.addEventListener('click', openModalWithPassword);
+        logo.addEventListener('click', openModal);
         closeBtn.addEventListener('click', closeModal);
         window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-// Назначаем обработчики кнопкам инструментов
-toolButtons.forEach(btn => {
-    btn.addEventListener('click', (event) => {
-        // Если это ссылка (тег A) — не мешаем, пусть делает переход
-        if (btn.tagName === 'A' && btn.getAttribute('href')) {
-            return; // переход на r4.html или другую страницу
-        }
-        // Если это кнопка-заглушка (inactive-tool) — ничего не делаем
-        if (btn.classList.contains('inactive-tool')) {
-            event.preventDefault();
-            return;
-        }
-        const tool = btn.getAttribute('data-tool');
-        if (tool) {
-            event.preventDefault();
-            runTool(tool);
-        } else {
-            alert('Инструмент не настроен');
-        }
-    });
-});
+        // Обработчики кнопок в модалке
+        toolButtons.forEach(btn => {
+            btn.addEventListener('click', (event) => {
+                // Если это ссылка (A) — не мешаем переходу
+                if (btn.tagName === 'A') return;
+                // Если заглушка
+                if (btn.classList.contains('inactive-tool')) {
+                    event.preventDefault();
+                    return;
+                }
+                const tool = btn.getAttribute('data-tool');
+                if (tool) {
+                    event.preventDefault();
+                    runTool(tool);
+                } else {
+                    alert('Инструмент не настроен');
+                }
+            });
+        });
     </script>
 </body>
 </html>
