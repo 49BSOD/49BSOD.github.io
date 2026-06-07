@@ -295,7 +295,7 @@
         </div>
 
         <a href="guides/guide0.html" class="tile guide-zero active">
-            <h3>Правила Альянса BSOD и BDSO</h3>
+            <h3>Правила Альянсов BSOD и BDSO</h3>
             <div class="badge">Доступно</div>
         </a>
 
@@ -312,7 +312,7 @@
     </div>
 
     <!-- Плавающая кнопка -->
-    <div class="floating-tools" id="toolsButton">🛠️</div>
+    <div class="floating-tools" id="toolsButton">R4</div>
 
     <!-- Модальное окно для инструментов -->
     <div id="toolsModal" class="modal">
@@ -323,6 +323,8 @@
             </div>
             <div class="tools-list">
                 <button class="tool-btn" data-tool="specops">🎲 Генератор спецопераций</button>
+    		<a href="r4.html" class="tool-btn" style="text-decoration: none; display: block;">📘 Руководство R4</a>
+    		<div class="tool-btn inactive-tool" style="opacity: 0.6; cursor: not-allowed;">📝 Текстовая разметка (скоро)</div>
                 <!-- Здесь будут другие кнопки с data-tool="..." -->
             </div>
             <div id="toolResult" class="generator-result"></div>
@@ -331,8 +333,7 @@
     </div>
 
     <script>
-        // Пароль для доступа к инструментам
-        const TOOLS_PASSWORD = '1271';
+
         
         // Элементы
         const toolsBtn = document.getElementById('toolsButton');
@@ -385,16 +386,26 @@
             }
         }
 
-        // Открытие модального окна с проверкой пароля
-        function openModalWithPassword() {
-            const password = prompt('Введите пароль для доступа к инструментам:');
-            if (password === TOOLS_PASSWORD) {
-                modal.style.display = 'flex';
-                hideResult();
-            } else if (password !== null) {
-                alert('Неверный пароль. Доступ запрещён.');
-            }
-        }
+
+const _0x7a3b = {
+  _0x1f2c: 'efbd1f26a54875e39972ccf7fa21a34f2491c850b2eba9636cb5478e595897b5',
+  _0x4d5e: async (_0x2c3d) => {
+    const _0x5e6f = new TextEncoder();
+    const _0x7a8b = _0x5e6f.encode(_0x2c3d);
+    const _0x9c0d = await crypto.subtle.digest('SHA-256', _0x7a8b);
+    const _0x1a2b = Array.from(new Uint8Array(_0x9c0d));
+    return _0x1a2b.map(_0x3c4d => _0x3c4d.toString(16).padStart(2, '0')).join('');
+  }
+};
+async function openModalWithPassword() {
+  const _0x2f3a = prompt('Введите пароль для доступа к инструментам:');
+  if (!_0x2f3a) return;
+  const _0x4b5c = await _0x7a3b._0x4d5e(_0x2f3a);
+  if (_0x4b5c === _0x7a3b._0x1f2c) {
+    modal.style.display = 'flex';
+    if (typeof hideResult === 'function') hideResult();
+  } else alert('Неверный пароль. Доступ запрещён.');
+}
 
         // Закрытие модалки
         function closeModal() {
@@ -409,12 +420,20 @@
 
         // Назначаем обработчики кнопкам инструментов
         toolButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const tool = btn.getAttribute('data-tool');
-                if (tool) runTool(tool);
-                else alert('Инструмент не настроен');
-            });
-        });
+    btn.addEventListener('click', (event) => {
+        const tool = btn.getAttribute('data-tool');
+        if (tool) {
+            event.preventDefault(); // если вдруг это ссылка, но с data-tool
+            runTool(tool);
+        } else {
+            // Если это ссылка (a) с href, не мешаем ей работать
+            if (btn.tagName === 'A' && btn.getAttribute('href')) {
+                return; // пусть браузер делает переход
+            }
+            alert('Инструмент не настроен');
+        }
+    });
+});
     </script>
 </body>
 </html>

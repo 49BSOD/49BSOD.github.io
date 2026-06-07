@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Руководство R4</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f1f5f9;
+            padding: 2rem;
+            line-height: 1.6;
+            color: #0f172a;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+        }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 2rem;
+            background: #22c55e;
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 2rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+        .back-btn:hover {
+            background: #16a34a;
+        }
+        h1 {
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        h2 {
+            color: #1e293b;
+            margin: 1.5rem 0 0.75rem 0;
+            font-size: 1.4rem;
+            border-left: 4px solid #22c55e;
+            padding-left: 0.75rem;
+        }
+        .steps {
+            list-style: none;
+            margin: 1rem 0;
+            padding: 0;
+        }
+        .steps li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+        .steps li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+            font-weight: bold;
+        }
+        .important {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            margin: 1rem 0;
+        }
+        .warning {
+            background: #fee2e2;
+            border-left: 4px solid #dc2626;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            margin: 1rem 0;
+            color: #991b1b;
+        }
+        .note {
+            background: #e0f2fe;
+            border-left: 4px solid #0ea5e9;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            margin: 1rem 0;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 1rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 6px -2px rgba(0,0,0,0.1);
+            display: block;
+        }
+        hr {
+            margin: 1.5rem 0;
+            border: none;
+            height: 1px;
+            background: #e2e8f0;
+        }
+        @media (max-width: 640px) {
+            body { padding: 1rem; }
+            .container { padding: 1.5rem; }
+            h1 { font-size: 1.5rem; }
+            h2 { font-size: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← На главную</a>
+
+        <h1>📘 Руководство R4</h1>
+        <p>Здесь ты узнаешь про все доступные действия ранга R4.</p>
+
+        <h2>📍 1. Метка на карту</h2>
+        <p>Метку на карте можно ставить на любой (кроме ящика спецоперации) статичный объект на карте — базу игрока, обычного и элитного зомби, ресурсную плитку, город и прочие. Чтобы это сделать, нажми на нужный объект, и в правом верхнем углу всплывающего окна нажми на иконку метки (см. картинку).</p>
+        <img src="guides/images/pic_r4_1.png" alt="Иконка метки на объекте" onerror="this.src='https://placehold.co/800x400?text=pic_r4_1.png'">
+
+        <p>В открывшемся меню метки ты можешь выбрать нужную тебе иконку, ввести описание метки, указать время действия метки в формате <strong>ДНИ Д ЧАСЫ : МИНУТЫ</strong> (чаще всего нужно указывать только минуты, остальные клетки заполнять не обязательно).</p>
+        <div class="important">
+            <strong>⚠️ Важно:</strong> создавать метку обязательно в таком порядке: <strong>сначала иконку, потом текст/время</strong>. Если ты сначала введёшь текст/время, а потом выберешь иконку — текст/время слетят.
+        </div>
+        <p>Также есть возможность включить внутриигровое уведомление, поставив отметку в квадратике <strong>«Сброс таймера: Автоматически уведомлять участников альянса за 3 м до старта»</strong>. Выбрав необходимые параметры, нажимай на кнопку <strong>«Разместить»</strong>, после чего метка появится на карте.</p>
+        <img src="guides/images/pic_r4_2.png" alt="Меню размещения метки" onerror="this.src='https://placehold.co/800x400?text=pic_r4_2.png'">
+
+        <h2>🎯 2. Точка сбора альянса (ассамблея)</h2>
+        <p>Для того чтобы поставить точку сбора, кликни в любое пустое место на карте и нажми кнопку со стрелками, после чего появится меню подтверждения выбора точки, в котором можно подтвердить выбор или отменить его (см. картинку).</p>
+        <img src="guides/images/pic_r4_3.png" alt="Точка сбора" onerror="this.src='https://placehold.co/800x400?text=pic_r4_3.png'">
+
+        <h2>⚡ 3. Управление засадой альянса</h2>
+        <div class="note">
+            📌 <strong>Скоро будет добавлено.</strong> Как следующая засада пройдёт — сразу дополним руководство.
+        </div>
+
+        <h2>🧟 4. Управление осадой зомби</h2>
+        <p>Запустить осаду, выбрать уровень засады и минимальный уровень участвующих в осаде баз можно в разделе <strong>«Инцидент»</strong> во вкладке <strong>«Осада зомби»</strong>.</p>
+        <div class="warning">
+            <strong>🔴 ВНИМАНИЕ!</strong> Запуск осады происходит <strong>БЕЗ КАКИХ-ЛИБО ПРЕДУПРЕЖДЕНИЙ ИЛИ ПОДТВЕРЖДЕНИЙ</strong>. НАЖАЛ КНОПКУ — ЗАПУСТИЛ СОБЫТИЕ.
+        </div>
+        <img src="guides/images/pic_r4_5.png" alt="Интерфейс осады зомби" onerror="this.src='https://placehold.co/800x400?text=pic_r4_5.png'">
+
+        <h2>📢 5. Объявления альянса / опросы</h2>
+        <p>Для того чтобы создать объявление или опрос, необходимо открыть вкладку чата альянса и в правом верхнем углу нажать на иконку мегафона, после чего ты можешь выбрать, что создать - объявление или опрос (см. картинку).</p>
+        <img src="guides/images/pic_r4_6.png" alt="Иконка мегафона в чате" onerror="this.src='https://placehold.co/800x400?text=pic_r4_6.png'">
+
+        <h3>📝 Объявление</h3>
+        <p>В объявлении вводим необходимый текст (поддерживает <strong>текстовую разметку</strong> — см. отдельное руководство). Можно также прикрепить картинку.</p>
+        <img src="guides/images/pic_r4_7.png" alt="Форма объявления" onerror="this.src='https://placehold.co/800x400?text=pic_r4_7.png'">
+        <p>Ещё можно прикрепить координаты города и его области — это можно сделать нажатием на область на карте (в таком случае будут указаны координаты города этой области) или через выбор уровня и последующий выбор города (см. картинку).</p>
+        <img src="guides/images/pic_r4_8.png" alt="Прикрепление координат" onerror="this.src='https://placehold.co/800x400?text=pic_r4_8.png'">
+        <p>После внесения всей необходимой информации нажимай кнопку <strong>«Опубликовать»</strong> — объявление опубликуется.</p>
+
+        <h3>📊 Опрос</h3>
+        <p>Опрос создаётся следующим образом:</p>
+        <ul class="steps">
+            <li>Вводится наименование опроса (Тема голосования).</li>
+            <li>Вводятся варианты выбора.</li>
+            <li>Добавить новый вариант можно только после того, как заполнены все предыдущие.</li>
+            <li>Также здесь можно включить выбор нескольких вариантов ответа, включить анонимность голосующих и выбрать длительность работы опроса (от 1 до 4 часов).</li>
+        </ul>
+        <img src="guides/images/pic_r4_9.png" alt="Форма создания опроса" onerror="this.src='https://placehold.co/800x400?text=pic_r4_9.png'">
+
+        <h3>⏳ Очередь объявлений</h3>
+        <p>Самое первое в очереди объявление можно сделать <strong>срочным</strong> — для этого нужно нажать красную кнопку в заголовке объявления (см. картинку). В этом случае форма объявления окрасится в красный цвет, и всем членам альянса придёт уведомление на телефон.</p>
+        <p>Объявления, которые находятся ниже в очереди, можно перенести в начало очереди — для этого надо нажать <strong>синюю кнопку</strong> в заголовке объявления. После этого оно <strong>СКОПИРУЕТСЯ</strong> в начало очереди, и его можно будет сделать срочным.</p>
+        <div class="important">
+            <strong>⚠️ ВАЖНО:</strong> объявление КОПИРУЕТСЯ. То есть если ты перенёс объявление в начало очереди — его старую копию (на которой ты нажимал кнопку) нужно удалить, чтобы не было дублей.
+        </div>
+
+        <p>Для того чтобы удалить объявление или опрос, перейди в него (нажми на него), после чего в правом верхнем углу нажми на значок урны (см. картинку).</p>
+        <img src="guides/images/pic_r4_10.png" alt="Удаление объявления" onerror="this.src='https://placehold.co/800x400?text=pic_r4_10.png'">
+
+        <div class="note">
+            📌 <strong>Продолжение следует...</strong> В следующих версиях появятся новые разделы и более подробные инструкции.
+        </div>
+
+        <hr>
+        <a href="index.html" class="back-btn" style="margin-top: 0.5rem;">🏠 На главную</a>
+    </div>
+</body>
+</html>
