@@ -418,18 +418,23 @@ async function openModalWithPassword() {
         closeBtn.addEventListener('click', closeModal);
         window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-        // Назначаем обработчики кнопкам инструментов
-        toolButtons.forEach(btn => {
+// Назначаем обработчики кнопкам инструментов
+toolButtons.forEach(btn => {
     btn.addEventListener('click', (event) => {
+        // Если это ссылка (тег A) — не мешаем, пусть делает переход
+        if (btn.tagName === 'A' && btn.getAttribute('href')) {
+            return; // переход на r4.html или другую страницу
+        }
+        // Если это кнопка-заглушка (inactive-tool) — ничего не делаем
+        if (btn.classList.contains('inactive-tool')) {
+            event.preventDefault();
+            return;
+        }
         const tool = btn.getAttribute('data-tool');
         if (tool) {
-            event.preventDefault(); // если вдруг это ссылка, но с data-tool
+            event.preventDefault();
             runTool(tool);
         } else {
-            // Если это ссылка (a) с href, не мешаем ей работать
-            if (btn.tagName === 'A' && btn.getAttribute('href')) {
-                return; // пусть браузер делает переход
-            }
             alert('Инструмент не настроен');
         }
     });
