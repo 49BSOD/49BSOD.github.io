@@ -38,7 +38,7 @@ function getRandomSix(arr) {
 // Формирует строку с тегами
 function buildString(numbers) {
     if (!numbers || numbers.length !== 6) return 'Ошибка: не удалось получить 6 чисел';
-    return `Спецоперации ⭐   <link=500&500&${numbers[0]}><u>${numbers[0]}</u></link>    <link=500&500&${numbers[1]}><u>${numbers[1]}</u></link>    <link=500&500&${numbers[2]}><u>${numbers[2]}</u></link>    <link=500&500&${numbers[3]}><u>${numbers[3]}</u></link>    <link=500&500&${numbers[4]}><u>${numbers[4]}</u></link>    <link=500&500&${numbers[5]}><u>${numbers[5]}</u></link>`;
+    return `<#ffc800>Спецоперации ⭐  <size=70><link=500&500&${numbers[0]}><u>${numbers[0]}</u></link>      <link=500&500&${numbers[1]}><u>${numbers[1]}</u></link>      <link=500&500&${numbers[2]}><u>${numbers[2]}</u></link>      <link=500&500&${numbers[3]}><u>${numbers[3]}</u></link>      <link=500&500&${numbers[4]}><u>${numbers[4]}</u></link>      <link=500&500&${numbers[5]}><u>${numbers[5]}</u></link>`;
 }
 
 // Основная функция, которую вызовет index.html
