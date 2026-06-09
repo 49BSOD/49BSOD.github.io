@@ -243,6 +243,139 @@
             .title-text h1 { font-size: 1.8rem; }
             .allies-text { font-size: 0.9rem; }
         }
+
+/* Виджет расписания */
+.widget-placeholder {
+    margin: 1.5rem 0;
+}
+.widget-card {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+}
+.widget-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #0f172a;
+    border-left: 4px solid #22c55e;
+    padding-left: 0.75rem;
+}
+.widget-events {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.event-item {
+    background: #f8fafc;
+    border-radius: 1rem;
+    padding: 0.5rem 0.75rem;
+    transition: background 0.2s;
+}
+.event-item.current-event {
+    background: #e0f2fe;
+    border-left: 4px solid #0ea5e9;
+}
+.event-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+}
+.event-time {
+    font-weight: 600;
+    color: #1e293b;
+    white-space: nowrap;
+}
+.event-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: #e2e8f0;
+    border-radius: 2rem;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+.event-action {
+    font-size: 0.85rem;
+    color: #475569;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+}
+.widget-anytime {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed #cbd5e1;
+    font-size: 0.9rem;
+    color: #0f172a;
+    background: #fef3c7;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+}
+.icon {
+    width: 48px;
+    height: 48px;
+    vertical-align: middle;
+    display: inline-block;
+    border-radius: 8px;
+    background: transparent;
+}
+.icon-wide {
+    width: auto;
+    height: 48px;
+    border-radius: 8px;
+}
+.emoji {
+    font-size: 48px;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+}
+.event-tag .icon, .event-tag .icon-wide, .event-tag .emoji {
+    width: 48px;
+    height: 48px;
+}
+.event-tag .icon-wide {
+    width: auto;
+}
+.event-action .icon, .event-action .icon-wide, .event-action .emoji {
+    width: 48px;
+    height: 48px;
+}
+.event-action .icon-wide {
+    width: auto;
+}
+.widget-anytime .icon, .widget-anytime .icon-wide, .widget-anytime .emoji {
+    width: 48px;
+    height: 48px;
+}
+.widget-anytime .icon-wide {
+    width: auto;
+}
+.emoji {
+    font-size: 48px !important;
+    line-height: 1 !important;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Для надёжности – если эмодзи внутри event-tag или event-action */
+.event-tag .emoji,
+.event-action .emoji,
+.widget-anytime .emoji {
+    font-size: 48px !important;
+    width: auto !important;
+    height: auto !important;
+}
+
     </style>
 </head>
 <body>
@@ -255,6 +388,7 @@
                 </div>
             </div>
             <p>Нажимай на активные плитки — читай гайды</p>
+            <div id="dailyWidget" class="widget-placeholder"></div>
         </div>
 
         <a href="guides/guide0.html" class="tile guide-zero active">
@@ -300,19 +434,16 @@
         const resultDiv = document.getElementById('toolResult');
         const copyNotice = document.getElementById('copyNotice');
 
-        // Функция показа уведомления о копировании
         function showCopyNotice() {
             copyNotice.style.opacity = '1';
             setTimeout(() => { copyNotice.style.opacity = '0'; }, 2000);
         }
 
-        // Функция скрытия результата
         function hideResult() {
             resultDiv.style.display = 'none';
             resultDiv.innerHTML = '';
         }
 
-        // Функция загрузки и выполнения инструмента
         async function runTool(toolName) {
             hideResult();
             try {
@@ -341,29 +472,23 @@
             }
         }
 
-        // Открытие модалки
         function openModal() {
             modal.style.display = 'flex';
             hideResult();
         }
 
-        // Закрытие модалки
         function closeModal() {
             modal.style.display = 'none';
             hideResult();
         }
 
-        // Обработчики
         logo.addEventListener('click', openModal);
         closeBtn.addEventListener('click', closeModal);
         window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
 
-        // Обработчики кнопок в модалке
         toolButtons.forEach(btn => {
             btn.addEventListener('click', (event) => {
-                // Если это ссылка (A) — не мешаем переходу
                 if (btn.tagName === 'A') return;
-                // Если заглушка
                 if (btn.classList.contains('inactive-tool')) {
                     event.preventDefault();
                     return;
@@ -378,5 +503,6 @@
             });
         });
     </script>
+    <script src="widget.js" defer></script>
 </body>
 </html>
