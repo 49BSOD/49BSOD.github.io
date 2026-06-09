@@ -142,7 +142,7 @@ function renderInlineIcons(text) {
     "build.png": '<img src="icons/build.png" class="icon" alt="build">',
     "tech.png": '<img src="icons/tech.png" class="icon" alt="tech">',
     "sc.png": '<img src="icons/sc.png" class="icon" alt="sc">',
-    "busy.png": '<img src="icons/busy.png" class="icon" alt="busy">',
+    "busp.png": '<img src="icons/busp.png" class="icon" alt="busp">',
     "articulated lorry emoji": '<span class="emoji">🚛</span>',
     "box emoji": '<span class="emoji">📦</span>',
     "300 energy.png": '<img src="icons/energy.png" class="icon" alt="energy">',
