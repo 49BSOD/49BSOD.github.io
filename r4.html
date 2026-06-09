@@ -348,23 +348,29 @@
 </div>
 
 <script>
-    // Функция для переключения видимости секций
-    function showSection(sectionId) {
-        // Скрыть все секции
-        document.querySelectorAll('.content-section').forEach(section => {
-            section.classList.remove('active-section');
-        });
-        // Показать выбранную
-        const activeSection = document.getElementById(sectionId);
-        if (activeSection) {
-            activeSection.classList.add('active-section');
-        }
-        // Синхронизировать оба выпадающих списка
-        const topSelect = document.getElementById('sectionSelect');
-        const bottomSelect = document.getElementById('sectionSelectBottom');
-        if (topSelect.value !== sectionId) topSelect.value = sectionId;
-        if (bottomSelect.value !== sectionId) bottomSelect.value = sectionId;
+// Функция для переключения видимости секций и прокрутки вверх
+function showSection(sectionId) {
+    // Скрыть все секции
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active-section');
+    });
+    // Показать выбранную
+    const activeSection = document.getElementById(sectionId);
+    if (activeSection) {
+        activeSection.classList.add('active-section');
     }
+    // Синхронизировать оба выпадающих списка
+    const topSelect = document.getElementById('sectionSelect');
+    const bottomSelect = document.getElementById('sectionSelectBottom');
+    if (topSelect.value !== sectionId) topSelect.value = sectionId;
+    if (bottomSelect.value !== sectionId) bottomSelect.value = sectionId;
+
+    // Плавная прокрутка к началу контейнера
+    const container = document.querySelector('.container');
+    if (container) {
+        container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
 
     // Обработчики для обоих списков
     const topSelect = document.getElementById('sectionSelect');
