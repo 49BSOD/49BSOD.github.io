@@ -1,4 +1,4 @@
-// widget.js – динамическое расписание (финальная версия)
+// widget.js – динамическое расписание с трёхколоночной разметкой
 
 const scheduleData = [
   // Четверг
@@ -142,7 +142,7 @@ function renderInlineIcons(text) {
     "build.png": '<img src="icons/build.png" class="icon" alt="build">',
     "tech.png": '<img src="icons/tech.png" class="icon" alt="tech">',
     "sc.png": '<img src="icons/sc.png" class="icon" alt="sc">',
-    "busp.png": '<img src="icons/busp.png" class="icon" alt="busp">',
+    "busy.png": '<img src="icons/busy.png" class="icon" alt="busy">',
     "articulated lorry emoji": '<span class="emoji">🚛</span>',
     "box emoji": '<span class="emoji">📦</span>',
     "300 energy.png": '<img src="icons/energy.png" class="icon" alt="energy">',
@@ -165,7 +165,7 @@ function renderWidget() {
   const nowLocal = new Date();
   const localDateStr = nowLocal.toLocaleDateString('ru-RU', { year: 'numeric', month: '2-digit', day: '2-digit' });
 
-  // Получаем действия "в любое время" для текущего дня (вставляем вверх)
+  // Получаем действия "в любое время" для текущего дня
   const todayIdx = getWeekDayUTC2().dayIndex;
   const firstToday = scheduleData.find(e => e.dayIndex === todayIdx);
   let anyTimeHtml = firstToday ? renderInlineIcons(firstToday.actionAny) : "";
@@ -196,37 +196,39 @@ function renderWidget() {
     eventsHtml += `
       <div class="event-item ${isCurrent ? 'current-event' : ''}">
         <div class="event-row">
-          <span class="event-time">🕒 ${timeRange}</span>
-          ${tagsHtml}
-          ${actionBlock}
+          <div class="event-left">🕒 ${timeRange}</div>
+          <div class="event-center">
+            ${tagsHtml}
+            ${actionBlock}
+          </div>
+          <div class="event-right"></div>
         </div>
       </div>
     `;
   });
 
-  // Сворачиваемая структура
   const widgetId = 'widget_' + Date.now();
   const headerHtml = `
     <div class="widget-header" id="header-${widgetId}">
       <span class="widget-toggle" id="toggle-${widgetId}">▶</span>
-      <span class="widget-title"><img src="icons/RD.png" class="icon icon-rect" alt="RD"> готовность и <img src="icons/VS.png" class="icon icon-rect" alt="VS"> ${localDateStr}</span>
+      <span class="widget-title">
+        <img src="icons/RD.png" class="icon icon-rect" alt="RD"> готовность и <img src="icons/VS.png" class="icon icon-rect" alt="VS"> ${localDateStr}
+      </span>
     </div>
   `;
   const contentHtml = `
     <div class="widget-content" id="content-${widgetId}">
-      <div class="widget-anytime">${anyTimeHtml}</div>
+      <div class="widget-anytime">Весь этап ${anyTimeHtml}</div>
       <div class="widget-events">${eventsHtml}</div>
     </div>
   `;
 
   container.innerHTML = `<div class="widget-card">${headerHtml}${contentHtml}</div>`;
 
-  // Навешиваем обработчик сворачивания
   const header = document.getElementById(`header-${widgetId}`);
   const toggleBtn = document.getElementById(`toggle-${widgetId}`);
   const content = document.getElementById(`content-${widgetId}`);
 
-  // Изначально свёрнут
   content.style.display = 'none';
   toggleBtn.textContent = '▶';
 
