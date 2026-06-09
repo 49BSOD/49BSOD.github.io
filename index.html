@@ -375,7 +375,31 @@
     width: auto !important;
     height: auto !important;
 }
-
+/* Заголовок с кнопкой */
+.widget-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #0f172a;
+    border-left: 4px solid #22c55e;
+    padding-left: 0.75rem;
+    cursor: pointer;
+    user-select: none;
+}
+.widget-toggle {
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+.widget-title {
+    flex: 1;
+}
+/* Контент (сворачиваемый) */
+.widget-content {
+    transition: display 0.2s;
+}
     </style>
 </head>
 <body>

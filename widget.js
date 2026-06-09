@@ -202,13 +202,42 @@ function renderWidget() {
   let anyTimeHtml = firstToday ? renderInlineIcons(firstToday.actionAny) : "";
   if (!anyTimeHtml) anyTimeHtml = "Нет данных";
 
-  container.innerHTML = `
-    <div class="widget-card">
-      <div class="widget-header">📅 Расписание на ${localDateStr}</div>
+  // Создаём структуру с заголовком-переключателем
+  const widgetId = 'widget_' + Date.now(); // уникальный ID для внутренних ссылок
+  const headerHtml = `
+    <div class="widget-header" id="header-${widgetId}">
+      <span class="widget-toggle" id="toggle-${widgetId}">▶</span>
+      <span class="widget-title">Готовность и VS на ${localDateStr}</span>
+    </div>
+  `;
+  const contentHtml = `
+    <div class="widget-content" id="content-${widgetId}">
       <div class="widget-events">${eventsHtml}</div>
       <div class="widget-anytime">🔄 Сегодня: ${anyTimeHtml}</div>
     </div>
   `;
+
+  container.innerHTML = `<div class="widget-card">${headerHtml}${contentHtml}</div>`;
+
+  // Навешиваем обработчик (один на всё)
+  const header = document.getElementById(`header-${widgetId}`);
+  const toggleBtn = document.getElementById(`toggle-${widgetId}`);
+  const content = document.getElementById(`content-${widgetId}`);
+
+  // Изначально сворачиваем
+  content.style.display = 'none';
+  toggleBtn.textContent = '▶';
+
+  const toggle = () => {
+    if (content.style.display === 'none') {
+      content.style.display = 'block';
+      toggleBtn.textContent = '▼';
+    } else {
+      content.style.display = 'none';
+      toggleBtn.textContent = '▶';
+    }
+  };
+  header.addEventListener('click', toggle);
 }
 
 document.addEventListener('DOMContentLoaded', renderWidget);
