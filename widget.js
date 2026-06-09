@@ -2,19 +2,19 @@
 
 const scheduleData = [
   // Четверг
-  { day: "Четверг", dayIndex: 4, start: "00:00:00", end: "04:00:00", eventReady: "Исследования", eventConfront: "Герой", actionSpecific: "-", actionAny: "Тратим puzzle.png, book.png, копим radar emoji на завтра" },
-  { day: "Четверг", dayIndex: 4, start: "04:00:00", end: "08:00:00", eventReady: "Самолёт", eventConfront: "Герой", actionSpecific: "Тратим 300 energy.png", actionAny: "Тратим puzzle.png, book.png, копим radar emoji на завтра" },
-  { day: "Четверг", dayIndex: 4, start: "08:00:00", end: "12:00:00", eventReady: "Герой", eventConfront: "Герой", actionSpecific: "Тратим exp.png и hc.png", actionAny: "Тратим puzzle.png, book.png, копим radar emoji на завтра" },
-  { day: "Четверг", dayIndex: 4, start: "12:00:00", end: "16:00:00", eventReady: "Строительство", eventConfront: "Герой", actionSpecific: "-", actionAny: "Тратим puzzle.png, book.png, копим radar emoji на завтра" },
-  { day: "Четверг", dayIndex: 4, start: "16:00:00", end: "20:00:00", eventReady: "Солдаты", eventConfront: "Герой", actionSpecific: "Повышаем и обучаем soldier.png", actionAny: "Тратим puzzle.png, book.png, копим radar emoji на завтра" },
-  { day: "Четверг", dayIndex: 4, start: "20:00:00", end: "00:00:00", eventReady: "Исследования", eventConfront: "Герой", actionSpecific: "-", actionAny: "Тратим puzzle.png, book.png, копим radar emoji на завтра" },
+  { day: "Четверг", dayIndex: 4, start: "00:00:00", end: "04:00:00", eventReady: "Исследования", eventConfront: "Герой", actionSpecific: "-", actionAny: "Тратим puzzle.png, book.png, exp.png и hc.png, копим radar emoji на завтра" },
+  { day: "Четверг", dayIndex: 4, start: "04:00:00", end: "08:00:00", eventReady: "Самолёт", eventConfront: "Герой", actionSpecific: "Тратим 300 energy.png", actionAny: "Тратим puzzle.png, book.png, exp.png и hc.png, копим radar emoji на завтра" },
+  { day: "Четверг", dayIndex: 4, start: "08:00:00", end: "12:00:00", eventReady: "Герой", eventConfront: "Герой", actionSpecific: "Закрываем готовность, усиленно тратим exp.png и hc.png", actionAny: "Тратим puzzle.png, book.png, exp.png и hc.png, копим radar emoji на завтра" },
+  { day: "Четверг", dayIndex: 4, start: "12:00:00", end: "16:00:00", eventReady: "Строительство", eventConfront: "Герой", actionSpecific: "-", actionAny: "Тратим puzzle.png, book.png, exp.png и hc.png, копим radar emoji на завтра" },
+  { day: "Четверг", dayIndex: 4, start: "16:00:00", end: "20:00:00", eventReady: "Солдаты", eventConfront: "Герой", actionSpecific: "Повышаем и обучаем soldier.png", actionAny: "Тратим puzzle.png, book.png, exp.png и hc.png, копим radar emoji на завтра" },
+  { day: "Четверг", dayIndex: 4, start: "20:00:00", end: "00:00:00", eventReady: "Исследования", eventConfront: "Герой", actionSpecific: "-", actionAny: "Тратим puzzle.png, book.png, exp.png и hc.png, копим radar emoji на завтра" },
   // Пятница
-  { day: "Пятница", dayIndex: 5, start: "00:00:00", end: "04:00:00", eventReady: "Самолёт", eventConfront: "Солдаты", actionSpecific: "Тратим 300 energy.png", actionAny: "Выполняем задания radar emoji" },
-  { day: "Пятница", dayIndex: 5, start: "04:00:00", end: "08:00:00", eventReady: "Герой", eventConfront: "Солдаты", actionSpecific: "Тратим 24 миллиона exp.png", actionAny: "Выполняем задания radar emoji" },
-  { day: "Пятница", dayIndex: 5, start: "08:00:00", end: "12:00:00", eventReady: "Строительство", eventConfront: "Солдаты", actionSpecific: "-", actionAny: "Выполняем задания radar emoji" },
-  { day: "Пятница", dayIndex: 5, start: "12:00:00", end: "16:00:00", eventReady: "Солдаты", eventConfront: "Солдаты", actionSpecific: "Повышаем и обучаем soldier.png, trsp.png тренировки", actionAny: "Выполняем задания radar emoji" },
-  { day: "Пятница", dayIndex: 5, start: "16:00:00", end: "20:00:00", eventReady: "Исследования", eventConfront: "Солдаты", actionSpecific: "-", actionAny: "Выполняем задания radar emoji" },
-  { day: "Пятница", dayIndex: 5, start: "20:00:00", end: "00:00:00", eventReady: "Самолёт", eventConfront: "Солдаты", actionSpecific: "Тратим 300 energy.png", actionAny: "Выполняем задания radar emoji" },
+  { day: "Пятница", dayIndex: 5, start: "00:00:00", end: "04:00:00", eventReady: "Самолёт", eventConfront: "Солдаты", actionSpecific: "Тратим 300 energy.png", actionAny: "Выполняем задания radar emoji, повышаем и обучаем soldier.png, trsp.png тренировки" },
+  { day: "Пятница", dayIndex: 5, start: "04:00:00", end: "08:00:00", eventReady: "Герой", eventConfront: "Солдаты", actionSpecific: "Тратим 24 миллиона exp.png", actionAny: "Выполняем задания radar emoji, повышаем и обучаем soldier.png, trsp.png тренировки" },
+  { day: "Пятница", dayIndex: 5, start: "08:00:00", end: "12:00:00", eventReady: "Строительство", eventConfront: "Солдаты", actionSpecific: "-", actionAny: "Выполняем задания radar emoji, повышаем и обучаем soldier.png, trsp.png тренировки" },
+  { day: "Пятница", dayIndex: 5, start: "12:00:00", end: "16:00:00", eventReady: "Солдаты", eventConfront: "Солдаты", actionSpecific: "Закрываем готовность - усиленно повышаем и обучаем soldier.png, trsp.png тренировки", actionAny: "Выполняем задания radar emoji, повышаем и обучаем soldier.png, trsp.png тренировки" },
+  { day: "Пятница", dayIndex: 5, start: "16:00:00", end: "20:00:00", eventReady: "Исследования", eventConfront: "Солдаты", actionSpecific: "-", actionAny: "Выполняем задания radar emoji, повышаем и обучаем soldier.png, trsp.png тренировки" },
+  { day: "Пятница", dayIndex: 5, start: "20:00:00", end: "00:00:00", eventReady: "Самолёт", eventConfront: "Солдаты", actionSpecific: "Тратим 300 energy.png", actionAny: "Выполняем задания radar emoji, повышаем и обучаем soldier.png, trsp.png тренировки" },
   // Суббота
   { day: "Суббота", dayIndex: 6, start: "00:00:00", end: "04:00:00", eventReady: "Герой", eventConfront: "Рейд", actionSpecific: "Тратим 24 миллиона exp.png", actionAny: "Убиваем и лечим soldier.png, hesp.png лечение. articulated lorry emoji, box emoji только ur.png" },
   { day: "Суббота", dayIndex: 6, start: "04:00:00", end: "08:00:00", eventReady: "Строительство", eventConfront: "Рейд", actionSpecific: "-", actionAny: "Убиваем и лечим soldier.png, hesp.png лечение. articulated lorry emoji, box emoji только ur.png" },
@@ -30,26 +30,26 @@ const scheduleData = [
   { day: "Воскресенье", dayIndex: 0, start: "16:00:00", end: "20:00:00", eventReady: "Герой", eventConfront: "Отдыхаем", actionSpecific: "Тратим 24 миллиона exp.png", actionAny: "Копим radar emoji на завтра" },
   { day: "Воскресенье", dayIndex: 0, start: "20:00:00", end: "00:00:00", eventReady: "Строительство", eventConfront: "Отдыхаем", actionSpecific: "-", actionAny: "Копим radar emoji на завтра" },
   // Понедельник
-  { day: "Понедельник", dayIndex: 1, start: "00:00:00", end: "04:00:00", eventReady: "Герой", eventConfront: "Радар", actionSpecific: "Тратим 24 миллиона exp.png", actionAny: "Выполняем задания radar emoji, добываем resource.png" },
-  { day: "Понедельник", dayIndex: 1, start: "04:00:00", end: "08:00:00", eventReady: "Строительство", eventConfront: "Радар", actionSpecific: "-", actionAny: "Выполняем задания radar emoji, добываем resource.png" },
-  { day: "Понедельник", dayIndex: 1, start: "08:00:00", end: "12:00:00", eventReady: "Солдаты", eventConfront: "Радар", actionSpecific: "Повышаем и обучаем soldier.png", actionAny: "Выполняем задания radar emoji, добываем resource.png" },
-  { day: "Понедельник", dayIndex: 1, start: "12:00:00", end: "16:00:00", eventReady: "Исследования", eventConfront: "Радар", actionSpecific: "-", actionAny: "Выполняем задания radar emoji, добываем resource.png" },
-  { day: "Понедельник", dayIndex: 1, start: "16:00:00", end: "20:00:00", eventReady: "Самолёт", eventConfront: "Радар", actionSpecific: "Тратим energy.png, chip.png и gear.png", actionAny: "Выполняем задания radar emoji, добываем resource.png" },
-  { day: "Понедельник", dayIndex: 1, start: "20:00:00", end: "00:00:00", eventReady: "Герой", eventConfront: "Радар", actionSpecific: "Тратим 24 миллиона exp.png", actionAny: "Выполняем задания radar emoji, добываем resource.png" },
+  { day: "Понедельник", dayIndex: 1, start: "00:00:00", end: "04:00:00", eventReady: "Герой", eventConfront: "Радар", actionSpecific: "Тратим 24 миллиона exp.png", actionAny: "Выполняем задания radar emoji, добываем resource.png, тратим energy.png, chip.png и gear.png" },
+  { day: "Понедельник", dayIndex: 1, start: "04:00:00", end: "08:00:00", eventReady: "Строительство", eventConfront: "Радар", actionSpecific: "-", actionAny: "Выполняем задания radar emoji, добываем resource.png, тратим energy.png, chip.png и gear.png" },
+  { day: "Понедельник", dayIndex: 1, start: "08:00:00", end: "12:00:00", eventReady: "Солдаты", eventConfront: "Радар", actionSpecific: "Повышаем и обучаем soldier.png", actionAny: "Выполняем задания radar emoji, добываем resource.png, тратим energy.png, chip.png и gear.png" },
+  { day: "Понедельник", dayIndex: 1, start: "12:00:00", end: "16:00:00", eventReady: "Исследования", eventConfront: "Радар", actionSpecific: "-", actionAny: "Выполняем задания radar emoji, добываем resource.png, тратим energy.png, chip.png и gear.png" },
+  { day: "Понедельник", dayIndex: 1, start: "16:00:00", end: "20:00:00", eventReady: "Самолёт", eventConfront: "Радар", actionSpecific: "Закрываем готовность - усиленно тратим energy.png и chip.png", actionAny: "Выполняем задания radar emoji, добываем resource.png, тратим energy.png, chip.png и gear.png" },
+  { day: "Понедельник", dayIndex: 1, start: "20:00:00", end: "00:00:00", eventReady: "Герой", eventConfront: "Радар", actionSpecific: "Тратим 24 миллиона exp.png", actionAny: "Выполняем задания radar emoji, добываем resource.png, тратим energy.png, chip.png и gear.png" },
   // Вторник
-  { day: "Вторник", dayIndex: 2, start: "00:00:00", end: "04:00:00", eventReady: "Строительство", eventConfront: "Строительство", actionSpecific: "build.png здания, busp.png строительство", actionAny: "Тратим sc.png, articulated lorry emoji и box emoji ТОЛЬКО trsp.png" },
-  { day: "Вторник", dayIndex: 2, start: "04:00:00", end: "08:00:00", eventReady: "Солдаты", eventConfront: "Строительство", actionSpecific: "Повышаем и обучаем soldier.png", actionAny: "Тратим sc.png, articulated lorry emoji и box emoji ТОЛЬКО trsp.png" },
-  { day: "Вторник", dayIndex: 2, start: "08:00:00", end: "12:00:00", eventReady: "Исследования", eventConfront: "Строительство", actionSpecific: "-", actionAny: "Тратим sc.png, articulated lorry emoji и box emoji ТОЛЬКО trsp.png" },
-  { day: "Вторник", dayIndex: 2, start: "12:00:00", end: "16:00:00", eventReady: "Самолёт", eventConfront: "Строительство", actionSpecific: "Тратим 300 energy.png", actionAny: "Тратим sc.png, articulated lorry emoji и box emoji ТОЛЬКО trsp.png" },
-  { day: "Вторник", dayIndex: 2, start: "16:00:00", end: "20:00:00", eventReady: "Герой", eventConfront: "Строительство", actionSpecific: "Тратим 24 миллиона exp.png", actionAny: "Тратим sc.png, articulated lorry emoji и box emoji ТОЛЬКО trsp.png" },
-  { day: "Вторник", dayIndex: 2, start: "20:00:00", end: "00:00:00", eventReady: "Строительство", eventConfront: "Строительство", actionSpecific: "build.png здания, busp.png строительство", actionAny: "Тратим sc.png, articulated lorry emoji и box emoji ТОЛЬКО trsp.png" },
+  { day: "Вторник", dayIndex: 2, start: "00:00:00", end: "04:00:00", eventReady: "Строительство", eventConfront: "Строительство", actionSpecific: "Закрываем готовность - усиленно build.png здания, busp.png строительство", actionAny: "build.png здания, busp.png строительство, тратим sc.png, articulated lorry emoji и box emoji ТОЛЬКО trsp.png" },
+  { day: "Вторник", dayIndex: 2, start: "04:00:00", end: "08:00:00", eventReady: "Солдаты", eventConfront: "Строительство", actionSpecific: "Повышаем и обучаем soldier.png", actionAny: "build.png здания, busp.png строительство, тратим sc.png, articulated lorry emoji и box emoji ТОЛЬКО trsp.png" },
+  { day: "Вторник", dayIndex: 2, start: "08:00:00", end: "12:00:00", eventReady: "Исследования", eventConfront: "Строительство", actionSpecific: "-", actionAny: "build.png здания, busp.png строительство, тратим sc.png, articulated lorry emoji и box emoji ТОЛЬКО trsp.png" },
+  { day: "Вторник", dayIndex: 2, start: "12:00:00", end: "16:00:00", eventReady: "Самолёт", eventConfront: "Строительство", actionSpecific: "Тратим 300 energy.png", actionAny: "build.png здания, busp.png строительство, тратим sc.png, articulated lorry emoji и box emoji ТОЛЬКО trsp.png" },
+  { day: "Вторник", dayIndex: 2, start: "16:00:00", end: "20:00:00", eventReady: "Герой", eventConfront: "Строительство", actionSpecific: "Тратим 24 миллиона exp.png", actionAny: "build.png здания, busp.png строительство, тратим sc.png, articulated lorry emoji и box emoji ТОЛЬКО trsp.png" },
+  { day: "Вторник", dayIndex: 2, start: "20:00:00", end: "00:00:00", eventReady: "Строительство", eventConfront: "Строительство", actionSpecific: "Закрываем готовность - усиленно build.png здания, busp.png строительство", actionAny: "build.png здания, busp.png строительство, тратим sc.png, articulated lorry emoji и box emoji ТОЛЬКО trsp.png" },
   // Среда
-  { day: "Среда", dayIndex: 3, start: "00:00:00", end: "04:00:00", eventReady: "Солдаты", eventConfront: "Исследования", actionSpecific: "Повышаем и обучаем soldier.png", actionAny: "Выполняем задания radar emoji, открываем chest.png" },
-  { day: "Среда", dayIndex: 3, start: "04:00:00", end: "08:00:00", eventReady: "Исследования", eventConfront: "Исследования", actionSpecific: "tech.png технологии, тратим data.png, scsp.png исследования", actionAny: "Выполняем задания radar emoji, открываем chest.png" },
-  { day: "Среда", dayIndex: 3, start: "08:00:00", end: "12:00:00", eventReady: "Самолёт", eventConfront: "Исследования", actionSpecific: "Тратим 300 energy.png", actionAny: "Выполняем задания radar emoji, открываем chest.png" },
-  { day: "Среда", dayIndex: 3, start: "12:00:00", end: "16:00:00", eventReady: "Герой", eventConfront: "Исследования", actionSpecific: "Тратим 24 миллиона exp.png", actionAny: "Выполняем задания radar emoji, открываем chest.png" },
-  { day: "Среда", dayIndex: 3, start: "16:00:00", end: "20:00:00", eventReady: "Строительство", eventConfront: "Исследования", actionSpecific: "-", actionAny: "Выполняем задания radar emoji, открываем chest.png" },
-  { day: "Среда", dayIndex: 3, start: "20:00:00", end: "00:00:00", eventReady: "Солдаты", eventConfront: "Исследования", actionSpecific: "Повышаем и обучаем soldier.png", actionAny: "Выполняем задания radar emoji, открываем chest.png" }
+  { day: "Среда", dayIndex: 3, start: "00:00:00", end: "04:00:00", eventReady: "Солдаты", eventConfront: "Исследования", actionSpecific: "Повышаем и обучаем soldier.png", actionAny: "Выполняем задания radar emoji, открываем chest.png, исследуем tech.png, тратим data.png, scsp.png исследования" },
+  { day: "Среда", dayIndex: 3, start: "04:00:00", end: "08:00:00", eventReady: "Исследования", eventConfront: "Исследования", actionSpecific: "Закрываем готовность, усиленно исследуем tech.png, scsp.png исследования", actionAny: "Выполняем задания radar emoji, открываем chest.png, исследуем tech.png, тратим data.png, scsp.png исследования" },
+  { day: "Среда", dayIndex: 3, start: "08:00:00", end: "12:00:00", eventReady: "Самолёт", eventConfront: "Исследования", actionSpecific: "Тратим 300 energy.png", actionAny: "Выполняем задания radar emoji, открываем chest.png, исследуем tech.png, тратим data.png, scsp.png исследования" },
+  { day: "Среда", dayIndex: 3, start: "12:00:00", end: "16:00:00", eventReady: "Герой", eventConfront: "Исследования", actionSpecific: "Тратим 24 миллиона exp.png", actionAny: "Выполняем задания radar emoji, открываем chest.png, исследуем tech.png, тратим data.png, scsp.png исследования" },
+  { day: "Среда", dayIndex: 3, start: "16:00:00", end: "20:00:00", eventReady: "Строительство", eventConfront: "Исследования", actionSpecific: "-", actionAny: "Выполняем задания radar emoji, открываем chest.png, исследуем tech.png, тратим data.png, scsp.png исследования" },
+  { day: "Среда", dayIndex: 3, start: "20:00:00", end: "00:00:00", eventReady: "Солдаты", eventConfront: "Исследования", actionSpecific: "Повышаем и обучаем soldier.png", actionAny: "Выполняем задания radar emoji, открываем chest.png, исследуем tech.png, тратим data.png, scsp.png исследования" }
 ];
 
 // ----- Вспомогательные функции -----
@@ -155,6 +155,7 @@ function renderInlineIcons(text) {
   return result;
 }
 
+// ----- Отрисовка виджета -----
 function renderWidget() {
   const container = document.getElementById('dailyWidget');
   if (!container) return;
@@ -164,12 +165,18 @@ function renderWidget() {
   const nowLocal = new Date();
   const localDateStr = nowLocal.toLocaleDateString('ru-RU', { year: 'numeric', month: '2-digit', day: '2-digit' });
 
+  // Получаем действия "в любое время" для текущего дня (вставляем вверх)
+  const todayIdx = getWeekDayUTC2().dayIndex;
+  const firstToday = scheduleData.find(e => e.dayIndex === todayIdx);
+  let anyTimeHtml = firstToday ? renderInlineIcons(firstToday.actionAny) : "";
+  if (!anyTimeHtml) anyTimeHtml = "Нет данных";
+
   let eventsHtml = '';
   nextEvents.forEach((ev, idx) => {
     const timeRange = formatLocalTimeRange(ev.start, ev.end);
     const isCurrent = idx === 0;
-    const readyIcon = '<img src="icons/RD.png" class="icon" alt="RD">';
-    const confrontIcon = '<img src="icons/VS.png" class="icon" alt="VS">';
+    const readyIcon = '<img src="icons/RD.png" class="icon icon-rect" alt="RD">';
+    const confrontIcon = '<img src="icons/VS.png" class="icon icon-rect" alt="VS">';
     const readyText = ev.eventReady;
     const confrontText = ev.eventConfront;
     let actionHtml = renderInlineIcons(ev.actionSpecific);
@@ -197,34 +204,29 @@ function renderWidget() {
     `;
   });
 
-  const todayIdx = getWeekDayUTC2().dayIndex;
-  const firstToday = scheduleData.find(e => e.dayIndex === todayIdx);
-  let anyTimeHtml = firstToday ? renderInlineIcons(firstToday.actionAny) : "";
-  if (!anyTimeHtml) anyTimeHtml = "Нет данных";
-
-  // Создаём структуру с заголовком-переключателем
-  const widgetId = 'widget_' + Date.now(); // уникальный ID для внутренних ссылок
+  // Сворачиваемая структура
+  const widgetId = 'widget_' + Date.now();
   const headerHtml = `
     <div class="widget-header" id="header-${widgetId}">
       <span class="widget-toggle" id="toggle-${widgetId}">▶</span>
-      <span class="widget-title">Готовность и VS на ${localDateStr}</span>
+      <span class="widget-title"><img src="icons/RD.png" class="icon icon-rect" alt="RD"> готовность и <img src="icons/VS.png" class="icon icon-rect" alt="VS"> ${localDateStr}</span>
     </div>
   `;
   const contentHtml = `
     <div class="widget-content" id="content-${widgetId}">
+      <div class="widget-anytime">${anyTimeHtml}</div>
       <div class="widget-events">${eventsHtml}</div>
-      <div class="widget-anytime">🔄 Сегодня: ${anyTimeHtml}</div>
     </div>
   `;
 
   container.innerHTML = `<div class="widget-card">${headerHtml}${contentHtml}</div>`;
 
-  // Навешиваем обработчик (один на всё)
+  // Навешиваем обработчик сворачивания
   const header = document.getElementById(`header-${widgetId}`);
   const toggleBtn = document.getElementById(`toggle-${widgetId}`);
   const content = document.getElementById(`content-${widgetId}`);
 
-  // Изначально сворачиваем
+  // Изначально свёрнут
   content.style.display = 'none';
   toggleBtn.textContent = '▶';
 
