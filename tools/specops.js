@@ -1,6 +1,4 @@
 // tools/specops.js
-// Генератор спецопераций (без рандомизации, кратно 5, ведущий ноль)
-
 const arrays = [
     [5, 10, 11, 16, 17, 22, 28, 30, 32, 40, 44, 46, 47, 48],
     [4, 9, 14, 15, 20, 21, 23, 27, 29, 37, 38, 45, 51],
@@ -37,10 +35,10 @@ function getSpecopsNumbers(arr) {
 function buildMessage(numbers) {
     if (!numbers.length) return 'Ошибка: нет спецопераций для вывода';
 
-    // Первая часть (текст с переносами)
-    let message = `<#ffа>Ищем и делимся спецоперациями<br>только <#0f0>4-х, 5-х уровней <#ffа>и только с<br><#0f0>3-мя ящиками<#ffа>, с <#f00>2-мя не трогаем<#ffа>.<#FFC800><SIZE=50> `;
+    let message = '<#ffа>Ищем и делимся спецоперациями<br>';
+    message += '<#ffа>только <#0f0>4-х, 5-х уровней <#ffа>и только с<br>';
+    message += '<#0f0>3-мя ящиками<#ffа>, с <#f00>2-мя не трогаем<#ffа>.<br>';
 
-    // Строки ссылок (по 5)
     for (let i = 0; i < numbers.length; i += 5) {
         const chunk = numbers.slice(i, i + 5);
         const links = chunk.map(num => makeLink(num)).join('      ');
@@ -48,7 +46,6 @@ function buildMessage(numbers) {
         if (i + 5 < numbers.length) message += '<br>';
     }
 
-    // Финальная строка (уменьшенный размер)
     message += `<br><size=35><#ffа>Пример спецопераций на картинке.`;
 
     return message;
