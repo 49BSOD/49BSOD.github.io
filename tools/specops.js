@@ -42,7 +42,7 @@ function buildMessage(numbers) {
 
     for (let i = 0; i < numbers.length; i += 5) {
         const chunk = numbers.slice(i, i + 5);
-        const links = chunk.map(num => makeLink(num)).join('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'); // 5 неразрывных пробелов
+        const links = chunk.map(num => makeLink(num)).join('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
         message += links;
         if (i + 5 < numbers.length) message += '<br>';
     }
@@ -57,6 +57,15 @@ export async function run(ui) {
     const numbers = getSpecopsNumbers(fullArray);
     const resultString = buildMessage(numbers);
     const escaped = resultString.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    
+    // Отображаем результат
     ui.displayResult(escaped);
-    await ui.copyToClipboard(resultString);
+    
+    // Копируем в буфер (оригинальную строку с тегами)
+    try {
+        await ui.copyToClipboard(resultString);
+        console.log('Копирование выполнено успешно');
+    } catch (err) {
+        console.error('Ошибка копирования:', err);
+    }
 }

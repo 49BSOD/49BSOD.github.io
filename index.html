@@ -462,8 +462,10 @@
                 <span class="close-modal" id="closeModalBtn">&times;</span>
             </div>
             <div class="tools-list">
-                <button class="tool-btn" data-tool="specops">🎲 Генератор спецопераций</button>
-                <a href="r4.html" class="tool-btn">📘 Руководство R4</a>
+		<a href="r4.html" class="tool-btn">📘 Руководство R4</a>
+                <button class="tool-btn" data-tool="specops">Объявление спецопераций</button>
+                <button class="tool-btn" data-tool="servers1-30">Сервера 1-30</button>
+		<button class="tool-btn" data-tool="servers31-60">Сервера 31-60</button>
                 <div class="tool-btn inactive-tool">📝 Текстовая разметка (скоро)</div>
             </div>
             <div id="toolResult" class="generator-result"></div>
@@ -491,32 +493,35 @@
         }
 
         async function runTool(toolName) {
-            hideResult();
-            try {
-                const module = await import(`./tools/${toolName}.js`);
-                if (module && typeof module.run === 'function') {
-                    module.run({
-                        displayResult: (html) => {
-                            resultDiv.innerHTML = html;
-                            resultDiv.style.display = 'block';
-                        },
-                        copyToClipboard: async (text) => {
-                            try {
-                                await navigator.clipboard.writeText(text);
-                                showCopyNotice();
-                                return true;
-                            } catch { return false; }
-                        }
-                    });
-                } else {
-                    throw new Error('Инструмент не содержит функцию run');
+    hideResult();
+    try {
+        const module = await import(`./tools/${toolName}.js`);
+        if (module && typeof module.run === 'function') {
+            module.run({
+                displayResult: (html) => {
+                    resultDiv.innerHTML = html;
+                    resultDiv.style.display = 'block';
+                },
+                copyToClipboard: async (text) => {
+                    try {
+                        await navigator.clipboard.writeText(text);
+                        showCopyNotice();
+                        return true;
+                    } catch (err) {
+                        console.error('Ошибка копирования:', err);
+                        return false;
+                    }
                 }
-            } catch (error) {
-                console.error(error);
-                resultDiv.innerHTML = '❌ Ошибка загрузки инструмента. Проверьте консоль.';
-                resultDiv.style.display = 'block';
-            }
+            });
+        } else {
+            throw new Error('Инструмент не содержит функцию run');
         }
+    } catch (error) {
+        console.error(error);
+        resultDiv.innerHTML = '❌ Ошибка загрузки инструмента. Проверьте консоль.';
+        resultDiv.style.display = 'block';
+    }
+}
 
         function openModal() {
             modal.style.display = 'flex';
