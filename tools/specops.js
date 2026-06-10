@@ -38,19 +38,16 @@ function buildMessage(numbers) {
     let message = '<#ffа>Ищем и делимся спецоперациями<br>';
     message += '<#ffа>только <#0f0>4-х, 5-х уровней <#ffа>и только с<br>';
     message += '<#0f0>3-мя ящиками<#ffа>, с <#f00>2-мя не трогаем<#ffа>.<br>';
-
-    // Первая строка ссылок с тегом цвета и размера
     message += '<#FFC800><SIZE=50>';
 
     for (let i = 0; i < numbers.length; i += 5) {
         const chunk = numbers.slice(i, i + 5);
-        const links = chunk.map(num => makeLink(num)).join('     '); // 5 пробелов
+        const links = chunk.map(num => makeLink(num)).join('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'); // 5 неразрывных пробелов
         message += links;
         if (i + 5 < numbers.length) message += '<br>';
     }
 
     message += `<br><size=35><#ffа>Пример спецопераций на картинке.`;
-
     return message;
 }
 
